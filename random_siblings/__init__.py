@@ -19,6 +19,9 @@ _Collection._dueForDid = _dueForDid
 
 
 def sortCards(self, cids, start=1, step=1, shuffle=False, shift=False):
+    if not cids:
+        return
+
     scids = ids2str(cids)
     now = intTime()
     # determine cid ordering
