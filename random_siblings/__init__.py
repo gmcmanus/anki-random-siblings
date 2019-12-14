@@ -6,6 +6,10 @@ from anki.consts import NEW_CARDS_DUE
 from anki.utils import ids2str, intTime
 
 
+# TODO
+# fix Collection.genCards - modify "due" similar to dueForDid below
+
+
 def _dueForDid(self, did, due):
     conf = self.decks.confForDid(did)
     # in order due?
