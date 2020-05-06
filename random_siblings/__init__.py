@@ -51,8 +51,8 @@ and due >= ? and queue = 0""" % scids, now, self.col.usn(), shiftby, low)
     d = []
     for cid, in self.col.db.execute(
         "select id from cards where type = 0 and id in "+scids):
-        d.append(dict(now=now, due=due[cid], usn=self.col.usn(), cid=cid))
+        d.append((due[cid], now, self.col.usn(), cid))
     self.col.db.executemany(
-        "update cards set due=:due,mod=:now,usn=:usn where id = :cid", d)
+        "update cards set due=?,mod=?,usn=? where id = ?", d)
 
 Scheduler.sortCards = sortCards
